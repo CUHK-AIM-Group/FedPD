@@ -31,6 +31,7 @@ Our local training is based on popolar open-set recognition framework [Proser](h
 python tools/proser_federated.py --log --mode fedavg
 ```
 **FedPD**
+
 To achieve parameter alignment for FedOSR, you can try:
 ```
 python tools/proser_fedpd.py --log --mode fedpd
