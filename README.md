@@ -6,6 +6,49 @@ Official implementation of the paper [FedPD: Federated Open Set Recognition with
 
 <!-- **FedPD is the first work of federated learning for open-set recognition.** -->
 
+<!-- ![teaser](./imgs/teaser.jpg) -->
+<img src="./figs/framework.png" width=90% height=80%>
+
+## Setup
+
+```
+cd data
+pip install -e .
+```
+
+## Dataset & Pretrained Modeel
+**Benchmark(Digits)**
+- Please download our pre-processed datasets [here](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155149226_link_cuhk_edu_hk/EV1YgHfFC4RKjw06NL4JMdgBMU21CegM12SpXrSmGjt3XA?e=XK2rFs), put under `data/` directory and perform following commands:
+    ```bash
+    cd ./data
+    unzip digit_dataset.zip
+    ```
+## Training
+**Baseline**
+
+Our local training is based on popolar open-set recognition framework [Proser](https://github.com/zhoudw-zdw/CVPR21-Proser). A simple baseline for federated open-set recognition is provided:
+```
+python tools/proser_federated.py --log --mode fedavg
+```
+**FedPD**
+To achieve parameter alignment for FedOSR, you can try:
+```
+python tools/proser_fedpd.py --log --mode fedpd
+```
+
+## Visualization of Parameter Misalignment
+
+<img src="./figs/curve.jpg" width=90% height=80%>
+
+## Dense Open-set Recognition
+
+
+## Acknowledgement
+
+We sincerely thank [Proser](https://github.com/zhoudw-zdw/CVPR21-Proser), [DenseHybrid](https://github.com/matejgrcic/DenseHybrid/tree/main), and [FedBN](https://github.com/med-air/FedBN) for providing their wonderful code!
+
+## Citations
+
 Please use the following bib entry to cite the paper if you are using resources from this repo.
 
 ```
@@ -16,31 +59,3 @@ Please use the following bib entry to cite the paper if you are using resources 
     year = {2023},
 }
 ```
-
-<!-- ![teaser](./imgs/teaser.jpg) -->
-<img src="./figs/framework.png" width=90% height=80%>
-
-### Setup
-
-```
-cd data
-pip install -e .
-```
-
-### Dataset & Pretrained Modeel
-**Benchmark(Digits)**
-- Please download our pre-processed datasets [here](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155149226_link_cuhk_edu_hk/EV1YgHfFC4RKjw06NL4JMdgBMU21CegM12SpXrSmGjt3XA?e=XK2rFs), put under `data/` directory and perform following commands:
-    ```bash
-    cd ./data
-    unzip digit_dataset.zip
-    ```
-### Training
-**Baseline**
-
-Our local training is based on popolar open-set recognition framework [Proser](https://github.com/zhoudw-zdw/CVPR21-Proser). A simple baseline for federated open-set recognition is provided:
-```
-python tools/proser_federated.py --log 
-```
-
-
-### Testing
